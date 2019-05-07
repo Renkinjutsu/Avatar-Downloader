@@ -35,9 +35,10 @@ getRepoContributors("jquery", "jquery", function(err, body) {
     else {
       var data = JSON.parse(body);
       data.forEach(function (data) {
-        console.log(data.avatar_url)
+        downloadImageByURL(`${data.avatar_url}`, `avatars/${[data.login]}.jpg`)
       })
     }
+
 });
 
 function downloadImageByURL(url, filePath) {
