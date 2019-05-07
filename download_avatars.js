@@ -4,7 +4,7 @@ var token = require('./secrets.js');
 var args = process.argv.slice(2);
 // args must have a value and have two arguments
 if (!args[0] || args.length !== 2) {
-  return
+  return;
 } else {
 // get arguments and callback function
   function getRepoContributors(repoOwner, repoName, cb) {
@@ -17,7 +17,7 @@ if (!args[0] || args.length !== 2) {
       }
     };
     request(options, function(err, response, body) {
-      console.log(response.statusCode)
+      console.log(response.statusCode);
           // callback function getRepoContributors function call
       cb(err, body);
     })
@@ -33,7 +33,7 @@ if (!args[0] || args.length !== 2) {
       // loops through data
       data.forEach(function (data) {
         // call back for downloading images
-        downloadImageByURL(`${data.avatar_url}`, `avatars/${[data.login]}.jpg`)
+        downloadImageByURL(`${data.avatar_url}`, `avatars/${[data.login]}.jpg`);
       })
     }
   });
@@ -52,7 +52,7 @@ if (!args[0] || args.length !== 2) {
                   );
             })
             // direct images to file directory
-            .pipe(fs.createWriteStream(`${filePath}`))
+            .pipe(fs.createWriteStream(`${filePath}`));
   }
 }
 
